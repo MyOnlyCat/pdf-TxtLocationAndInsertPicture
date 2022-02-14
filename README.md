@@ -1,11 +1,32 @@
 # PDF文字定位插入图片
+# 核心库
+```xml
+<!--    PDF解析核心    -->
+<dependency>
+    <groupId>org.apache.pdfbox</groupId>
+    <artifactId>pdfbox</artifactId>
+    <version>2.0.22</version>
+</dependency>
+```
 # 效果示例
+所有演示基于`AllPdfSearch`类
+## 普通文档PDF
 ```java
 // 传入需要查找的文字和图片插入时需要定位的文字下标
 PrintTextLocations stripper = new PrintTextLocations("审核单位盖章", 5);
 ```
 ![](https://blog-oss-voidday.oss-cn-chengdu.aliyuncs.com/other/202202141509314.png)  
-可以看到图片定位到下标5的"章"字
+```java
+PrintTextLocations stripper = new PrintTextLocations("授权签署人签字", 6);
+```
+![](https://blog-oss-voidday.oss-cn-chengdu.aliyuncs.com/other/202202141516633.png)   
+可以看到图片定位到下标5的"章"字,以及下标6的"字"字
+## 特殊类PDF
+![](https://blog-oss-voidday.oss-cn-chengdu.aliyuncs.com/other/202202141521385.png)   
+```java
+PrintTextLocations stripper = new PrintTextLocations("北京/广州办事处", 7);
+```
+![](https://blog-oss-voidday.oss-cn-chengdu.aliyuncs.com/other/202202141521643.png)   
 # 核心代码
 - 重写 `writeString`获取文字坐标相关信息
 ```java
