@@ -66,4 +66,4 @@ protected void writeString(String text, List<TextPosition> textPositions) throws
 ```
 # 提示
 - 获取的文字Y轴是没有计算空行的,解析时忽略的空行
-- 目前定位文字跨行了就无法定位因为PDFbox的原因,本人暂时无法解决
+- 目前定位文字跨行了就无法定位因为PDFbox的原因,本人暂时未做处理
